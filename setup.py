@@ -18,7 +18,7 @@ with open("README.md", "r") as fh:
 setup(
     name="py3-http-utils",
     version="1.0.0",
-    description="The Python3 Http Utils Library Developed By Guolei",
+    description="The Python3 Http Utils Developed By Guolei",
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/guolei19850528/py3_http_utils",
