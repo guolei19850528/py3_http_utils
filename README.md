@@ -66,17 +66,17 @@ def pretreatment(response: Response = None):
 # 执行请求
 response = httpx.get(url="https://www.baidu.com")
 
-response = HttpxResponseHandler.handler(response=response, pretreatment=None, condition=lambda x: x.status_code == 200)
+response = HttpxResponseHandler.handler(response=response, pretreatment=None, condition=lambda x: x.is_success)
 
-text = HttpxResponseHandler.text(response=response, pretreatment=pretreatment, condition=lambda x: x.status_code == 200)
+text = HttpxResponseHandler.text(response=response, pretreatment=pretreatment, condition=lambda x: x.is_success)
 
-content = HttpxResponseHandler.content(response=response, pretreatment=pretreatment, condition=lambda x: x.status_code == 200)
+content = HttpxResponseHandler.content(response=response, pretreatment=pretreatment, condition=lambda x: x.is_success)
 
-json = HttpxResponseHandler.json(response=response, pretreatment=pretreatment, condition=lambda x: x.status_code == 200)
+json = HttpxResponseHandler.json(response=response, pretreatment=pretreatment, condition=lambda x: x.is_success)
 
 json_addict = HttpxResponseHandler.json_addict(response=response, pretreatment=pretreatment,
-                                               condition=lambda x: x.status_code == 200)
+                                               condition=lambda x: x.is_success)
 
 beautifulsoup = HttpxResponseHandler.beautifulsoup(response=response, pretreatment=pretreatment,
-                                                   condition=lambda x: x.status_code == 200)
+                                                   condition=lambda x: x.is_success)
 ```
