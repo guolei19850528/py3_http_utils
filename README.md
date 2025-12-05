@@ -32,19 +32,19 @@ def pretreatment(response: Response = None):
 # 执行请求
 response = requests.get(url="https://www.baidu.com")
 
-response = RequestsResponseHandler.handler(response=response, pretreatment=None, condition=lambda x: response.ok)
+response = RequestsResponseHandler.handler(response=response, pretreatment=None, condition=lambda x: x.ok)
 
-text = RequestsResponseHandler.text(response=response, pretreatment=pretreatment, condition=lambda x: response.ok)
+text = RequestsResponseHandler.text(response=response, pretreatment=pretreatment, condition=lambda x: x.ok)
 
-content = RequestsResponseHandler.content(response=response, pretreatment=pretreatment, condition=lambda x: response.ok)
+content = RequestsResponseHandler.content(response=response, pretreatment=pretreatment, condition=lambda x: x.ok)
 
-json = RequestsResponseHandler.json(response=response, pretreatment=pretreatment, condition=lambda x: response.ok)
+json = RequestsResponseHandler.json(response=response, pretreatment=pretreatment, condition=lambda x: x.ok)
 
 json_addict = RequestsResponseHandler.json_addict(response=response, pretreatment=pretreatment,
-                                                  condition=lambda x: response.ok)
+                                                  condition=lambda x: x.ok)
 
 beautifulsoup = RequestsResponseHandler.beautifulsoup(response=response, pretreatment=pretreatment,
-                                                      condition=lambda x: response.ok)
+                                                      condition=lambda x: x.ok)
 ```
 #### httpx Response 使用说明
 
@@ -66,17 +66,17 @@ def pretreatment(response: Response = None):
 # 执行请求
 response = httpx.get(url="https://www.baidu.com")
 
-response = HttpxResponseHandler.handler(response=response, pretreatment=None, condition=lambda x: response.ok)
+response = HttpxResponseHandler.handler(response=response, pretreatment=None, condition=lambda x: x.status_code == 200)
 
-text = HttpxResponseHandler.text(response=response, pretreatment=pretreatment, condition=lambda x: response.ok)
+text = HttpxResponseHandler.text(response=response, pretreatment=pretreatment, condition=lambda x: x.status_code == 200)
 
-content = HttpxResponseHandler.content(response=response, pretreatment=pretreatment, condition=lambda x: response.ok)
+content = HttpxResponseHandler.content(response=response, pretreatment=pretreatment, condition=lambda x: x.status_code == 200)
 
-json = HttpxResponseHandler.json(response=response, pretreatment=pretreatment, condition=lambda x: response.ok)
+json = HttpxResponseHandler.json(response=response, pretreatment=pretreatment, condition=lambda x: x.status_code == 200)
 
 json_addict = HttpxResponseHandler.json_addict(response=response, pretreatment=pretreatment,
-                                               condition=lambda x: response.ok)
+                                               condition=lambda x: x.status_code == 200)
 
 beautifulsoup = HttpxResponseHandler.beautifulsoup(response=response, pretreatment=pretreatment,
-                                                   condition=lambda x: response.ok)
+                                                   condition=lambda x: x.status_code == 200)
 ```
